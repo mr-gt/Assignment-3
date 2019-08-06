@@ -11,13 +11,19 @@
 <style>
 h1,h2,h3,h4,h5,h6 {font-family: Halfomania}
 body,p {font-family: "Montserrat", sans-serif}
-#myImg {
+#myImg1 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#myImg2 {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg1:hover {opacity: 0.7;}
+#myImg2:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -265,10 +271,9 @@ project within the specified timeframe.<br>
 	<h2 style="font-size: 100px; color: orange">Timeframe</h2>
 	<p style="font-size: 20px">
 	<!-- Trigger the Modal -->
-	<img id="myImg" src="Pics/Gantt.PNG" alt="Gantt Chart" style="width:100%;max-width:1400px;border:8px solid orange;margin-left: 0%;margin-right: auto;">
-
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
+	<img id="myImg1" src="Pics/Gantt-Phase1.PNG" alt="Gantt Chart: Phase 1" style="width:100%;max-width:1400px;border:8px solid orange;margin-left: 0%;margin-right: auto;">
+	<!-- The 1st Modal -->
+	<div id="myModal1" class="modal">
 
   		<!-- The Close Button -->
   		<span class="close">&times;</span>
@@ -281,10 +286,10 @@ project within the specified timeframe.<br>
 
 <script>
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal1");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
+var img = document.getElementById("myImg1");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
@@ -295,6 +300,44 @@ img.onclick = function(){
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+	</div>
+	<!-- Trigger the Modal -->
+	<img id="myImg2" src="Pics/Gantt-Phase2.PNG" alt="Gantt Chart: Phase 2" style="width:100%;max-width:1400px;border:8px solid orange;margin-left: 0%;margin-right: auto;">
+	<!-- The 2nd Modal -->
+	<div id="myModal2" class="modal">
+
+  		<!-- The Close Button -->
+  		<span class="close">&times;</span>
+
+  		<!-- Modal Content (The Image) -->
+  		<img class="modal-content" id="img02">
+
+ 		<!-- Modal Caption (Image Text) -->
+  		<div id="Caption"></div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal2");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg2");
+var modalImg = document.getElementById("img02");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[1];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
