@@ -11,9 +11,90 @@
 <style>
 h1,h2,h3,h4,h5,h6 {font-family: Halfomania}
 body,p {font-family: "Montserrat", sans-serif}
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 1800px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1400px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 500px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 </style>
 
 <body class="w3-black">
+
+
 <div class= "w3-top">
 <div class="w3-bar w3-black w3-small w3-center" style="width: 80%; margin-left: auto; margin-right: auto">
   <a href="index.html" style="width:14%;" class="w3-bar-item w3-button w3-round-large w3-text-orange w3-hover-orange">
@@ -174,7 +255,45 @@ project within the specified timeframe.<br>
 	</p>
 	<h2 style="font-size: 100px; color: orange">Timeframe</h2>
 	<p style="font-size: 20px">
-	I am some text.
+	<!-- Trigger the Modal -->
+	<img id="myImg" src="Pics/Gantt.PNG" alt="Gantt Chart" style="width:100%;max-width:1400px;border:8px solid orange;margin-left: 0%;margin-right: auto;">
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+  		<!-- The Close Button -->
+  		<span class="close">&times;</span>
+
+  		<!-- Modal Content (The Image) -->
+  		<img class="modal-content" id="img01">
+
+ 		<!-- Modal Caption (Image Text) -->
+  		<div id="Caption"></div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+	</div>
 	</p>
 	<h2 style="font-size: 100px; color: orange">Risks</h2>
 	<p style="font-size: 20px">
